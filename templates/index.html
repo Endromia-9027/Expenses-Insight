@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Expenses Insight</title>
+</head>
+<body>
+    <div class="welcome"><h1 class="welcome_sign">Welcome to Expenses Insight !</h1></div>
+    <p class="tag_line">Check your daily expenses & handle it.</p>
+    <div class="login_sentence">
+        <p class="login">Login to your account</p>
+    </div>
+    <div class="signup_sentence">
+        <p style="margin-left: 15px; display: inline;">Don't have one? </p> <a href="/create_new" style="display: inline-block; color: rgb(52, 158, 252);" > Create new</a>
+    </div>
+    <div class="login_options">
+        <form action="{{ url_for('app_login') }}" method="POST">
+            <input type="text" placeholder="User Name / User id" id="user_name" name="username" required>
+            <input type="password" placeholder="Password" id="pass_" name="password" required minlength="6">
+            <button class="login_button" type="submit" style="margin-left: 20px;">Login</button>
+        </form>
+    </div>
+    <div class="signup_sentence_other_options">
+        <p style="text-align: center; margin-left: 5px;">OR</p>
+        <p class="continue_">Continue with Google</p>
+        <img class="google_img" src="{{ url_for('static', filename='images/Google.png') }}">
+    </div>
+</body>
+</html>

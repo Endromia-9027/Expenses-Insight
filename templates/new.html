@@ -1,0 +1,70 @@
+<!-- templates/welcome.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        .view_expenses_button{
+    font-family: sans-serif;
+    font-size: medium;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: rgba(52, 52, 52, 0.615);
+    color: rgb(176, 176, 176);
+    border-radius: 50px;
+    border: 1px solid rgb(79, 79, 79);
+    margin-top: 17.5px;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.3s;
+}
+.view_expenses_button:hover,
+.view_expenses_button:focus,
+.view_expenses_button :active{
+    background-color: rgba(100, 100, 100, 0.8); /* Change background color on focus */
+    color: white; /* Change text color on focus */
+    border-color: #ff7e5f; /* Change border color on focus */
+    transform: scale(1.03); /* Slightly scale up the input */
+    box-shadow: 0 0 10px rgba(255, 51, 0, 0.5);
+}
+
+.welcome {
+    margin-top: 150px;
+}
+
+.welcome {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    animation: bounce 2s infinite; /* Apply the bounce animation */
+}
+
+/* Define the bounce animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Start and end at the original position */
+    }
+    50% {
+        transform: translateY(-6px); /* Move up by 10px at the midpoint */
+    }
+}
+
+    </style>
+</head>
+<body style="font-family: sans-serif; font-family: sans-serif; text-align: center; background-color: rgb(0, 0, 31); color: white;">
+    <h1 style="margin-top: 150px;" class="welcome">Welcome to Your Dashboard!</h1>
+    <p>Login successful. You are now on the welcome screen.</p>
+    <a style="color: rgb(52, 158, 252); font: 1.25em sans-serif;"  href="/">Go back to login</a>
+    <form action="{{ url_for('view_expenses') }}" method="GET">
+        <button class="view_expenses_button" type="submit" style="margin-top: 10px;">View your expenses</button>
+    </form>
+    <form action="{{ url_for('add_expenses') }}" method="POST">
+        <button class="view_expenses_button" type="submit" style="margin-top: 10px;">Add your expenses</button>
+    </form>
+</body>
+</html>

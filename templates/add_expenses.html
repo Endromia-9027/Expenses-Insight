@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add your Expenses</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            background-color: rgb(0, 0, 31);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 100px;
+            font-size: 2rem;
+        }
+        .user_data {
+            display: flex;
+            flex-direction: column; /* Ensures items are stacked vertically */
+            align-items: center; /* Centers items horizontally */
+            gap: 10px; /* Space between elements */
+            margin-top: 20px;
+        }
+        .user_data input,
+        .user_data button {
+            display: block;
+            font-family: sans-serif;
+            margin-bottom: 20px;
+            font-size: medium;
+            padding: 10px;
+            width: 300px; /* Adjust width as needed */
+            background-color: rgba(52, 52, 52, 0.615);
+            color: rgb(176, 176, 176);
+            border-radius: 25px;
+            border: 1px solid rgb(79, 79, 79);
+            transition: background-color 0.5s, ease 0.5s;
+            cursor: pointer;
+        }
+        .user_data button {
+            margin-left: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+            background-color: rgba(42, 42, 42, 0.8);
+            color: white;
+            border: none;
+        }
+
+        .user_data select{
+
+            display: block;
+            font-family: sans-serif;
+            margin-bottom: 20px;
+            font-size: medium;
+            padding: 10px;
+            padding-left: 20px;
+
+            width: 300px; /* Adjust width as needed */
+            background-color: rgba(52, 52, 52, 0.615);
+            color: rgb(176, 176, 176);
+            border-radius: 25px;
+            border: 1px solid rgb(79, 79, 79);
+            transition: background-color 0.5s, ease 0.5s;
+            cursor: pointer;
+        }
+
+
+        .user_data button:hover {
+            background-color: rgba(80, 80, 80, 0.8);
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .user_data input,
+            .user_data button {
+                width: 90%; /* Full width for smaller screens */
+                padding: 8px;
+                font-size: small;
+            }
+        }
+
+        .welcome {
+    margin-top: 150px;
+}
+
+.welcome {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    animation: bounce 2s infinite; /* Apply the bounce animation */
+}
+
+/* Define the bounce animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Start and end at the original position */
+    }
+    50% {
+        transform: translateY(-6px); /* Move up by 10px at the midpoint */
+    }
+}
+
+.user_data input:focus,
+.user_data input:active {
+    background-color: rgba(100, 100, 100, 0.8); /* Change background color on focus */
+    color: white; /* Change text color on focus */
+    border-color: #ff7e5f; /* Change border color on focus */
+    transform: scale(1.03); /* Slightly scale up the input */
+    box-shadow: 0 0 10px rgba(255, 51, 0, 0.5);
+}
+
+
+    </style>
+</head>
+<body>
+    <h1 class="welcome">Enter your Expenses.</h1>
+    <div class="user_data">
+        <form action="{{ url_for('user_data_exp') }}" method="POST">
+            <input type="number" placeholder="amount" id="user_name" name="amount" required aria-label="User Name">
+            <input type="text" placeholder="name" id="name" name="name" required aria-label="Category" >
+            <input type="date" placeholder="date" id="date" name="date" required aria-label="Date">
+            <select id="description" name="description" required aria-label="Description">
+                <option value="Transport">Transport</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Electronic appliances">Electronic appliances</option>
+                <option value="Ration">Ration</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Home needs">Home needs</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <button type="submit">submit</button>
+        </form>
+            
+    </div>
+</body>
+</html>
