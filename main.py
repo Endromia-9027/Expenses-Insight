@@ -73,6 +73,14 @@ def get_exp_id():
     user_exp_id += 1
     return str(user_exp_id)
     
+def summ_of_expenses(user_id_know):
+    try:
+        query_sum = 'SELECT SUM(amount) FROM expenses WHERE User_id =  %s'
+        sum_result = execute_query(query_sum, (user_id_know,))  # Make sure to pass the query and parameters correctly
+        sum = sum_result[0] if sum_result else 0  # Handle the case where sum_result is None or empty
+        return sum
+    except Exception as e:
+        return e
 
 # Route to show the login screen
 @app.route('/')
@@ -151,7 +159,10 @@ def view_expenses():
                     )
                     for t in user_expenses
                 ]
-            return render_template('expenses.html', expenses=cleaned_results)
+            summ_of_exp = summ_of_expenses(user_id)
+            if summ_of_exp :
+                print(summ_of_exp[0])
+                return render_template('expenses.html', expenses=cleaned_results, sum=summ_of_exp[0])
         else:
             return f"No expenses found for this user. {user_id}, {view_query}"
     else:
@@ -170,9 +181,12 @@ def view_expenses():
                     )
                     for t in user_expenses
                 ]
-            return render_template('expenses.html', expenses=cleaned_results)
+            summ_of_exp = summ_of_expenses(user_id_know)
+            if summ_of_exp :
+                print(summ_of_exp[0])
+                return render_template('expenses.html', expenses=cleaned_results, sum=summ_of_exp[0])
         else:
-            return render_template('user_not_found.html')
+            return render_template('no_expenses_found.html')
     
 @app.route('/create_new')
 def create_new():

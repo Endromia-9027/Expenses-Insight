@@ -30,6 +30,21 @@
         tr:nth-child(odd) {
             background-color: rgba(64, 64, 64, 0.615);
         }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(52, 52, 52, 0.615);
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: rgba(80, 80, 80, 0.8);
+            color: white;
+        }
 
         @media (max-width: 768px) {
         
@@ -66,5 +81,7 @@
             {% endfor %}
         </tbody>
     </table>
+    <h1>Total Expenses: &#8377;{{ sum }}</h1>
+    <a href="/welcome">Go to Dashboard</a>
 </body>
 </html>

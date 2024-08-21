@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NO_EXPENSES_FOUND</title>
+    <style>
+
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            background-color: rgb(0, 0, 31);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(52, 52, 52, 0.615);
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+            border: none;
+        }
+
+        button:hover {
+            background-color: rgba(80, 80, 80, 0.8);
+            color: white;
+        }
+
+        h1{
+            margin-top: 150px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1> Uh, oh! </h1>
+    <p>It seemes like you haven't added your data yet.</p>
+    <form action="{{ url_for('add_expenses') }}" method="POST">
+        <button type="submit">Click here to add expenses</button>
+    </form>    
+</body>
+</html>

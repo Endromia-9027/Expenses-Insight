@@ -119,10 +119,10 @@
     <h1 class="welcome">Enter your Expenses.</h1>
     <div class="user_data">
         <form action="{{ url_for('user_data_exp') }}" method="POST">
-            <input type="number" placeholder="amount" id="user_name" name="amount" required aria-label="User Name">
+            <input type="number" step="0.01" placeholder="amount" id="amount" name="amount" required>
             <input type="text" placeholder="name" id="name" name="name" required aria-label="Category" >
             <input type="date" placeholder="date" id="date" name="date" required aria-label="Date">
-            <select id="description" name="description" required aria-label="Description">
+            <select id="description" name="description" required aria-label="Description" style="margin-left: 10px;">
                 <option value="Transport">Transport</option>
                 <option value="Grocery">Grocery</option>
                 <option value="Electronic appliances">Electronic appliances</option>
